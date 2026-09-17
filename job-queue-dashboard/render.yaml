@@ -1,0 +1,25 @@
+# Render blueprint: one Postgres database and the NestJS API.
+# The frontend is a static build and is easiest to host on Vercel or Netlify,
+# but it can also be added here as a static site.
+databases:
+  - name: job-queue-db
+    plan: free
+
+services:
+  - type: web
+    name: job-queue-api
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start:prod
+    healthCheckPath: /health
+    envVars:
+      - key: DB_TYPE
+        value: postgres
+      - key: DATABASE_URL
+        fromDatabase:
+          name: job-queue-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        sync: false # set this to the deployed frontend URL
