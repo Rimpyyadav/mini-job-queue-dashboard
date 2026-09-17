@@ -56,7 +56,7 @@ export class JobTransition {
   id!: string;
 
   @Index()
-  @Column({ type: 'varchar', length: 36 })
+   @Column({ type: 'uuid' })
   jobId!: string;
 
   @ManyToOne(() => Job, { onDelete: 'CASCADE' })
