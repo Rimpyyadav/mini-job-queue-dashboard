@@ -2,8 +2,8 @@
 
 A small job queue manager: NestJS + TypeORM on the backend, React + Vite on the frontend.
 
-- **Live frontend:** _add your deployed URL here_
-- **Live API:** _add your deployed URL here_
+- **Live frontend:** https://frontend-kappa-liart-8zrueenwxg.vercel.app/
+- **Live API:** https://job-queue-api-3om9.onrender.com/
 
 The interesting part of this assignment is not the CRUD — it is the status transition rule and what happens when two people trigger it at the same time. That reasoning is in [Concurrency](#concurrency), and there is a script that proves the behaviour: [`scripts/race-test.mjs`](scripts/race-test.mjs).
 
